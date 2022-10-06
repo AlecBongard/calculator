@@ -24,7 +24,7 @@ opers.forEach(element => {
     element.addEventListener('click',() => {
         let expression = disp.textContent;
             if(checkOper(expression)){
-                let vals = expression.split(/-|x|÷|\+/); //puts values before and after operator into array
+                let vals = expression.split(/-|×|÷|\+/); //puts values before and after operator into array
                 disp.textContent = operate(checkOper(expression), +vals[0], +vals[1]);
             }
 
@@ -36,7 +36,7 @@ opers.forEach(element => {
 equals.addEventListener('click', ()=>{
     let expression = disp.textContent;
     if(checkOper(expression)){
-        let vals = expression.split(/-|x|÷|\+/); //puts values before and after operator into array
+        let vals = expression.split(/-|×|÷|\+/); //puts values before and after operator into array
         disp.textContent = operate(checkOper(expression), +vals[0], +vals[1]);
     }
 }); 
@@ -46,7 +46,7 @@ function checkOper(str){
         return add;
     }else if(str.includes("-")){
         return sub;
-    }else if(str.includes("x")){
+    }else if(str.includes("×")){
         return mult;
     }else if(str.includes("÷")){
         return divide;
