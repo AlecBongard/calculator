@@ -9,7 +9,9 @@
 </head>
 <body>
     <div class="calc">
-        <div class="screen"></div>
+        <div class="screen">
+            <p class="disp">0</p>
+        </div>
         <div class="buttons">
             <div class="nums">
                 <div class="num">7</div>
@@ -23,13 +25,14 @@
                 <div class="num">3</div>
                 <div class="num">0</div>
                 <div class="num">.</div>
-                <div class="num">=</div> 
+                <div class="equals">=</div> 
             </div>
             <div class="operators">
-                <div class="oper">÷</div>
-                <div class="oper">x</div>
-                <div class="oper">-</div>
-                <div class="oper">+</div>
+                <div class="oper", id="divide">÷</div>
+                <div class="oper", id="times">x</div>
+                <div class="oper", id="times">-</div>
+                <div class="oper", id="plus">+</div>
+                <div class="clear">C</div>
             </div>
         </div>
     </div>
