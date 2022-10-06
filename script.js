@@ -2,15 +2,16 @@ const nums = document.querySelectorAll('.num');
 const disp = document.querySelector('.disp');
 const clear = document.querySelector('.clear');
 const opers = document.querySelectorAll('.oper');
-
-let cleared = true;
-first=null;
+const plus = document.querySelector('#plus');
+const minus = document.querySelector('#minus');
+const times = document.querySelector('#times');
+const division = document.querySelector('#division');
+const equals = document.querySelector('.equals');
 
 
 nums.forEach(element => {
     element.addEventListener('click',() => {
-        if(cleared===true){
-            cleared = false;
+        if(disp.textContent === "0"){
             disp.textContent = '';
         }
 
@@ -21,15 +22,39 @@ nums.forEach(element => {
 
 opers.forEach(element => {
     element.addEventListener('click',() => {
-        if(cleared===true){
-            cleared = false;
-            disp.textContent = '';
-        }
+        let expression = disp.textContent;
+            if(checkOper(expression)){
+                let vals = expression.split(/-|x|÷|\+/); //puts values before and after operator into array
+                disp.textContent = operate(checkOper(expression), +vals[0], +vals[1]);
+            }
 
-        val = element.textContent;
-        disp.textContent += val;
+            val = element.textContent;
+            disp.textContent += val;
     })
 })
+
+equals.addEventListener('click', ()=>{
+    let expression = disp.textContent;
+    if(checkOper(expression)){
+        let vals = expression.split(/-|x|÷|\+/); //puts values before and after operator into array
+        disp.textContent = operate(checkOper(expression), +vals[0], +vals[1]);
+    }
+}); 
+
+function checkOper(str){
+    if(str.includes("+")){
+        return add;
+    }else if(str.includes("-")){
+        return sub;
+    }else if(str.includes("x")){
+        return mult;
+    }else if(str.includes("÷")){
+        return divide;
+    }else{
+        return false;
+    }
+}
+
 
 clear.addEventListener('click', ()=>{
     cleared = true;
