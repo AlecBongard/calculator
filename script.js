@@ -7,7 +7,23 @@ const minus = document.querySelector('#minus');
 const times = document.querySelector('#times');
 const division = document.querySelector('#division');
 const equals = document.querySelector('.equals');
+const dec = document.querySelector('.dec');
 
+
+dec.addEventListener('click', ()=>{
+    let expression = disp.textContent;
+    let vals = expression.split(/-|×|÷|\+/);
+
+    if(vals.length > 1){
+        if(!(vals[1].includes("."))){
+            disp.textContent += ".";
+        }
+    }else{
+        if(!(vals[0].includes("."))){
+            disp.textContent += ".";
+        }
+    }
+});
 
 nums.forEach(element => {
     element.addEventListener('click',() => {

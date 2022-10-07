@@ -44,7 +44,7 @@
     justify-content: center;
 }
 
-.num, .equals{
+.num, .equals, .dec{
     border: 1px solid black;
     height: 75px;
     width: 75px;
@@ -66,10 +66,10 @@
     align-items: center;
 }
 
-.num:hover, .oper:hover, .clear:hover, .equals:hover{
+.num:hover, .oper:hover, .clear:hover, .equals:hover, .dec:hover{
     background-color: lightgrey;
 }
 
-.num:active, .oper:active, .clear:active, .equals:active{
+.num:active, .oper:active, .clear:active, .equals:active, .dec:hover{
     background-color: grey;
 }
