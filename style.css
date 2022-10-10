@@ -23,15 +23,17 @@ body{
     margin: 10px;
     display: flex;
     background-color: #A8C64E;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .disp{
     align-self:flex-start;
     justify-self:flex-start;
     margin: 4px;
-    font-size: 36px;
+    font-size: 28px;
     font-family: 'Orbitron';
-    color: #3C412C;
+    color: #565d3e;
 }
 
 .buttons{
@@ -88,4 +90,9 @@ body{
 
 .num:active, .oper:active, .clear:active, .equals:active, .dec:active{
     background-color: grey;
+}
+
+.ans{
+    font-size: 36px;
+    color: #3C412C;
 }

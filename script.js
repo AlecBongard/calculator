@@ -8,6 +8,7 @@ const times = document.querySelector('#times');
 const division = document.querySelector('#division');
 const equals = document.querySelector('.equals');
 const dec = document.querySelector('.dec');
+const ans = document.querySelector('.ans');
 
 
 dec.addEventListener('click', ()=>{
@@ -29,6 +30,8 @@ nums.forEach(element => {
     element.addEventListener('click',() => {
         if(disp.textContent === "0"){
             disp.textContent = '';
+        }else if(ans.textContent !== '' && !checkOper(disp.textContent)){
+            disp.textContent = '';
         }
 
         val = element.textContent;
@@ -41,19 +44,24 @@ opers.forEach(element => {
         let expression = disp.textContent;
             if(checkOper(expression)){
                 let vals = expression.split(/-|×|÷|\+/); //puts values before and after operator into array
-                disp.textContent = operate(checkOper(expression), +vals[0], +vals[1]);
+                let evaled = operate(checkOper(expression), +vals[0], +vals[1]);
+
+                disp.textContent = evaled;
             }
 
             val = element.textContent;
             disp.textContent += val;
     })
-})
+});
 
 equals.addEventListener('click', ()=>{
     let expression = disp.textContent;
     if(checkOper(expression)){
         let vals = expression.split(/-|×|÷|\+/); //puts values before and after operator into array
-        disp.textContent = operate(checkOper(expression), +vals[0], +vals[1]);
+        let evaled = operate(checkOper(expression), +vals[0], +vals[1]);
+
+        disp.textContent = evaled;
+        ans.textContent = evaled;
     }
 }); 
 
